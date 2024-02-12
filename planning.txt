@@ -1,0 +1,13 @@
+ 
+ Index.js
+
+Factories
+1. Ship
+2. GameBoard
+3. Player 
+
+
+Modules
+4. DOM
+5. UI
+6. RunGame
