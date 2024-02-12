@@ -6,17 +6,11 @@ function Gameboard (){
     const addHits =()=> hits++;
 
     let grid=[];
-    /*Grid has 4 states
-    1. '' == not attacked
-    2. 'S' == not attacked, has ship
-    3. 'x' attacked, miss
-    4. 'Sx' attacked, hit*/
-
     /*
-    [''] 
-    ['',ship()]
-    ['x']
-    ['x',ship()]
+    [''] = no hit no ship
+    ['',ship()] = no hit yes ship
+    ['x'] = yes hit no ship
+    ['x',ship()] = yes hit yes ship
     */
     const resetBoard =()=>{
         grid = []
@@ -80,6 +74,3 @@ function Gameboard (){
 }
 export default Gameboard;
 
-
-import Ship from "./ship"
-// let test = G
