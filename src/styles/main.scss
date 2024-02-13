@@ -1,0 +1,29 @@
+
+@import './mixins.scss' ;
+@import './board.scss';
+@import './postgame.scss';
+
+
+:root{
+    font-size: 18px;
+}
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #2f9fe6;
+    // background-image: url("../assets/images/wallpaper2.jpeg");
+    // background-size: 20%;
+}
+
+.content{
+    @include flex-center;
+    padding: 2rem;
+}
+

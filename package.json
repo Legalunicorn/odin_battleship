@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest",
     "watch": "webpack --watch",
-
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js"
   },
@@ -22,6 +21,8 @@
     "eslint-config-prettier": "^9.1.0",
     "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
     "style-loader": "^3.3.4",
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
