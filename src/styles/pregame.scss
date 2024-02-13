@@ -1,0 +1,25 @@
+#setup{
+    // background-color: red;
+    @include flex-center;
+
+    .ship{
+        background-color: green;
+        // border: 1px solid black;
+
+        *{
+            //all shipcells none draggable
+            pointer-events: none;
+        }
+    }
+
+    .shipblock{
+        @include cell;
+    }
+}
+
+
+.hide{
+    display:none;
+}
+
+

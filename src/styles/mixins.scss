@@ -1,5 +1,14 @@
+
+@import './variables';
+
 @mixin flex-center{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin cell {
+    border: 1px solid black;
+    height: $cell-size-default;
+    width: $cell-size-default;
 }

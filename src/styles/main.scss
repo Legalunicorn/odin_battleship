@@ -1,7 +1,11 @@
 
 @import './mixins.scss' ;
+@import './variables.scss';
+
 @import './board.scss';
+
 @import './postgame.scss';
+@import "./pregame.scss";
 
 
 :root{
@@ -24,6 +28,7 @@ body{
 
 .content{
     @include flex-center;
+    gap: 2rem;
     padding: 2rem;
 }
 

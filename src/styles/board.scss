@@ -1,15 +1,23 @@
+@import "./variables.scss";
+
 .board{
     display:grid;
     grid-template-columns: repeat(10,1fr);
     border: 1px solid black;
-    width: 50dvw;
-    height: 50dvw
+    // width: 30dvh;
+    // height: 30dvh;
 }
 
 .board-cell{
     background-color: white;
-    border: 1px solid black;
+    @include cell;
+
 }
 .board-cell:hover{
     background-color: grey;
+}
+
+.drag-over{
+    border: 1px solid red;
+    background-color: $blue-3;
 }

@@ -14,6 +14,11 @@
 import "./styles/main.scss"
 
 import initUI from "./modules/initBoard"
+import draggable from "./modules/draggable"
 
 let test = initUI()
 test.initPregameBoard();
+
+let testDrag = draggable();
+testDrag.initDraggable();
+console.log('here')
