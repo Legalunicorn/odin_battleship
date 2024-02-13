@@ -7,7 +7,7 @@ describe('Testing AI',()=>{
     let humanboard = Gameboard()
     let ai = AI(AIboard,humanboard)
     let testShips = [[Ship(5),'x'],[Ship(4),'y'],[Ship(3),'x'],[Ship(2),'y'],[Ship(2),'y'],[Ship(1),'x']]
-    ai.placeShips(testShips)
+    ai.placeShipsRandomly(testShips)
 
     test('placing ships',()=>{
         let shipcount = 0;
@@ -21,8 +21,16 @@ describe('Testing AI',()=>{
 
     test('attack squaures',()=>{
         //attempt 20 sqaures
-        for (let i =0;i<20;i++){
-            ai.attack()
+        for (let i=0;i<20;i++){
+            ai.attack();
         }
+
+        let count=0
+        for (let i=0;i<10;i++){
+            for (let j=0;j<10;j++)
+            if (humanboard.grid[i][j][0] =='x') count++
+        }
+        expect(count).toBe(20)
+        
     })
 })

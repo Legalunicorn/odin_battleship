@@ -5,7 +5,7 @@ function AI(mine,theirs){
 
     //1. place ships
     // given a board place ships
-    const placeShips=(arrOfShips)=>{
+    const placeShipsRandomly=(arrOfShips)=>{
         //[[ship,('x')],[ship,('y)],[],[]
     
         //place 5 len ship first 
@@ -70,16 +70,30 @@ function AI(mine,theirs){
         while (!done){
             col =Math.floor(Math.random() * 10);
             row = Math.floor(Math.random() * 10);
-            stringxy = col.toString + row.toString
+            stringxy = col.toString() + row.toString()
             if (!alreadyHitSqaures.includes(stringxy)){
                 theirBoard.receiveAttack([col,row])
                 alreadyHitSqaures.push(stringxy)
                 done = true;
             }
+        
+            else{
+                // return -1 //debug
+            }
         }
     }
 
-    return {placeShips,attack}
+    const getMyBoard = ()=>{
+        for (let i =0;i<10;i++){
+            for (let j=0;j<10;j++){
+                // process.stdout.write(theirBoard.grid[i][j]);
+                console.log(theirBoard.grid[i][j])
+            }
+            console.log()
+        }
+    }
+
+    return {placeShipsRandomly,attack}
 }
 
 export default AI;

@@ -8,13 +8,17 @@ export default function Player(mine,theirs){
     */
     let myBoard=mine,theirBoard=theirs;
 
-    const makeMove =(sqaure)=>{
+    //attack opposing board
+    const attack =(sqaure)=>{
+        //assumes a new sqaure
+        theirBoard.receiveAttack(square)
+    }
+
+    const placeShip=(ship,start,direction)=>{
+        //[ship,start,direction]
+        myBoard.placeShip(ship,start,direction)
 
     }
 
-    const placeShip=(ship)=>{
-
-    }
-
-    return {makeMove,placeShip}
+    return {attack,placeShip}
 }
