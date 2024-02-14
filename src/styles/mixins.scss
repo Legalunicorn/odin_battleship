@@ -8,7 +8,7 @@
 }
 
 @mixin cell {
-    border: 1px solid black;
+    border: 1px solid $blue-4;
     height: $cell-size-default;
     width: $cell-size-default;
 }

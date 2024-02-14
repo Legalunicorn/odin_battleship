@@ -17,7 +17,8 @@ import initUI from "./modules/initBoard"
 import draggable from "./modules/draggable"
 
 let test = initUI()
-test.initPregameBoard();
+// test.initPregameBoard();
+test.init();
 
 let testDrag = draggable();
 testDrag.initDraggable();

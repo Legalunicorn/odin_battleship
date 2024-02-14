@@ -1,3 +1,5 @@
+import Ship from "./ship"
+
 function AI(mine,theirs){
     let alreadyHitSqaures =[]; //uses a string xy 
     //myBoard should be a empty board upon init of Ai
@@ -5,7 +7,22 @@ function AI(mine,theirs){
 
     //1. place ships
     // given a board place ships
-    const placeShipsRandomly=(arrOfShips)=>{
+    //CREATE THE ARR OF SHIPS  
+    const arrOfShips=[] 
+    const shipLen = [5,4,3,2,2,1]
+    shipLen.forEach((len)=>{
+        const newPlacement = [Ship(len)]
+        let rand = Math.floor(Math.random()*2)
+        if (rand==0){
+            newPlacement.push('x')
+        }
+        else{
+            newPlacement.push('y')
+        }
+        arrOfShips.push(newPlacement)
+    })
+  
+    const placeShipsRandomly=()=>{
         //[[ship,('x')],[ship,('y)],[],[]
     
         //place 5 len ship first 
@@ -67,13 +84,15 @@ function AI(mine,theirs){
         let done = false;
         let col,row;
         let stringxy;
+        let hitSunk;
         while (!done){
             col =Math.floor(Math.random() * 10);
             row = Math.floor(Math.random() * 10);
             stringxy = col.toString() + row.toString()
             if (!alreadyHitSqaures.includes(stringxy)){
-                theirBoard.receiveAttack([col,row])
+                hitSunk = theirBoard.receiveAttack([col,row])
                 alreadyHitSqaures.push(stringxy)
+                //return the attack
                 done = true;
             }
         
@@ -81,6 +100,8 @@ function AI(mine,theirs){
                 // return -1 //debug
             }
         }
+        return [[col,row],hitSunk[0],hitSunk[1]]
+        //return [[col,row],bool,bool] ==> coordiate attack, has hit, has sunk
     }
 
     const getMyBoard = ()=>{
