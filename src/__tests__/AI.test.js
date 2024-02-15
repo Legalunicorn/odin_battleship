@@ -7,7 +7,7 @@ describe('Testing AI',()=>{
     let humanboard = Gameboard()
     let ai = AI(AIboard,humanboard)
     // let testShips = [[Ship(5),'x'],[Ship(4),'y'],[Ship(3),'x'],[Ship(2),'y'],[Ship(2),'y'],[Ship(1),'x']]
-    // ai.placeShipsRandomly(testShips)
+    ai.placeShipsRandomly(testShips)
     ai.placeShipsRandomly()
 
 

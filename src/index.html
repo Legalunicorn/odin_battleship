@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="test">
     </div>
 
-    <!-- <header></header> -->
-    <div class="content">
-        <div class="board" id="board1"> <!-- YOUR BOARD-->
-        </div>
-        <div id="setup"> <!-- PLACING SHIPS MENU-->
-            <!-- <div id="ship1" class="ship" draggable="true" data-direction="y" data-length="3">
-                <div class="shipblock"></div>
-                <div class="shipblock"></div>
-                <div class="shipblock"></div>
+    <header>BATTLE SHIP</header>
+    <main>
+        <div class="content">
+            <div class="board" id="board1"> <!-- YOUR BOARD-->
             </div>
-            <div id="ship2" class="ship isX" draggable="true" data-direction="x" data-length="4">
-                <div class="shipblock"></div>
-                <div class="shipblock"></div>
-                <div class="shipblock"></div>
-                <div class="shipblock"></div>
-            </div> -->
-        </div>
-
-        <div class="board" id="board2"> <!--AI BOARD-->
-        </div>
-    </div>
-    <div>
-        <span id="start-game" style="background:white">START</span>
-    </div>
+            <div id="setup"> <!-- PLACING SHIPS MENU-->
+            </div>
     
-    <div id="play-again">
-        <div class="message"></div> <!--who wins-->
-        <button class="playagain">Play Again?</button>
-    </div>
-    <!-- <footer></footer> -->
+            <div class="board" id="board2"> <!--AI BOARD-->
+            </div>
+        </div>
+        <div class="mybutton" id="start-game">Start</div>
+        
+        <div id="play-again" class="hide">
+            <div class="message"></div> <!--who wins-->
+            <button class="mybutton">Play Again</button>
+        </div>
 
+        <div id="overlay" class=""></div>
 
-    <!-- <img src="testing" alt=""> -->
-    <!-- <img src="testing" alt="idk"> -->
-    <!-- <script src="bundle.js"></script> -->
+    </main>
+    <footer></footer>
 </body>
 </html>

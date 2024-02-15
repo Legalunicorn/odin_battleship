@@ -16,7 +16,7 @@ export default function GameLoop(){
     AIPlayer.placeShipsRandomly();
 
     //game main info
-    let isPlayerTurn=true,gameOver=false;
+    let isPlayerTurn=true;
     
     const game=()=>{
         dom.resetContent();
@@ -30,10 +30,11 @@ export default function GameLoop(){
         //let the "start" button work, but only activates
         //when play drags 5 ships properly
         initStartGame(drag);
+        initPlayAgain();
         // battleTurns();
 
 
-
+    
     }
     const createGameElements=()=>{
         humanBoard = Gameboard()
@@ -100,8 +101,10 @@ export default function GameLoop(){
                         else{
                             //check if win else keep going
                             if (humanPlayer.getOpponentBoard().allSunk()){
-                                gameOver=true;
-                                alert('GAME OVER!! YOU WIN')
+                                gameOver('Human')
+                                // gameOver=true;
+                                //Playagain
+                                // alert('GAME OVER!! YOU WIN')
                             }
                         }
                     }
@@ -120,13 +123,34 @@ export default function GameLoop(){
                 }
                 else if (AIPlayer.getOpponentBoard().allSunk()){
                     //check sunk all
-                    gameOver=true;
-                    alert('You suck you lose to a random AI bot')
+                    gameOver('AI')
+                    // gameOver=true;
+                    // alert('You suck you lose to a random AI bot')
 
                 }
             }
         }
-         
+  
+    }
+    const gameOver= (winner)=>{
+        const playAgainModal = document.getElementById('play-again')
+        const winnerMsg = document.querySelector('#play-again .message')
+        winnerMsg.textContent = `${winner} has won!`
+        playAgainModal.classList.toggle('hide')
+
+        const overlay = document.getElementById('overlay')
+        overlay.classList.toggle('overlay-active')
+    }
+
+    const initPlayAgain=()=>{
+        const playAgain = document.getElementById('play-again')
+        const overlay =  document.getElementById('overlay')
+        playAgain.addEventListener('click',()=>{
+            playAgain.classList.toggle('hide')
+            overlay.classList.toggle('overlay-active')
+            game();
+        })
+        
     }
 
     return {game}

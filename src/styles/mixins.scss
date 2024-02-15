@@ -8,8 +8,15 @@
 }
 
 @mixin cell {
-    border: 1px solid $blue-4;
+    border: 1px dotted $blue-4;
     height: $cell-size-default;
     width: $cell-size-default;
     @include flex-center;
+}
+
+@mixin flex-column-center{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

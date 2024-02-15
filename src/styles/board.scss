@@ -10,6 +10,7 @@
     // height: 30dvh;
 }
 
+
 .board-cell{
     background-color: $blue-2;
     @include cell;
@@ -33,7 +34,7 @@
     border: 1px solid red;
     background-color: pink;
     transition: 100ms ease-in-out;
-    animation: shake 0.3s;
+    animation: shake 0.4s;
     animation-iteration-count: infinite;
 }
 @keyframes shake {

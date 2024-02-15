@@ -1,6 +1,8 @@
 //together with draggable
 import initUI from "./initBoard"
 
+import explosion from "../assets/images/explosion.png"
+
 
 export default function DOM(){
     const UI = initUI()
@@ -8,20 +10,19 @@ export default function DOM(){
         document.getElementById('board1').innerHTML=''
         document.getElementById('setup').innerHTML=''
         document.getElementById('board2').innerHTML=''
+        document.getElementById('start-game').removeAttribute('hidden')
+        document.getElementById('setup').removeAttribute('hidden')
     }
 
     const loadBattleBoard = ()=>{
-        //clear the set up, it is now gone
         const setup = document.getElementById('setup')
         setup.setAttribute('hidden','')
-        //minimise player board/change opacity
-        // const playerBoard = document.getElementById('board1')
-        // playerBoard.classList.toggle('')
-        //3. set up AI board
-        //==give it rows and columns only
         UI.initGameBoard('board2','board-cell-AI');
-        const AIBoard = document.getElementById('board2');
-        // AIBoard.classList.add('')
+
+        //remove Start Button
+        const start = document.getElementById('start-game')
+        start.setAttribute('hidden','')
+
     }
 
     const attackUpdate=(side,cell,result)=>{
@@ -36,10 +37,15 @@ export default function DOM(){
             cellElement = document.querySelector(`.board-cell[data-cell="${cell}"]`)
         }
         if (result){
-            console.log('resuilt is TRUE')
-            cellElement.textContent='O'
+            const cellImg = new Image();
+            cellImg.src = explosion
+            cellElement.appendChild(cellImg)
         }
         else{
+            //explosion
+            // const cellImg = new Image();
+            // cellImg.src = explosion
+            // cellElement.appendChild(cellImg)
             cellElement.textContent='X'
         }
 
