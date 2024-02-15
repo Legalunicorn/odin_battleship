@@ -4,6 +4,8 @@ import Ship from "./ship"
 
 export default function draggable(player){
     let placed=0;
+    const getPlaced=()=>placed
+    const addPlaced=()=>placed++
 
     const initDraggable = ()=>{
         const placeableShips = document.querySelectorAll(".ship")
@@ -50,7 +52,6 @@ export default function draggable(player){
         }
         e.dataTransfer.setData('formatSquare',squareNo)
         e.dataTransfer.setData('text/plain',e.target.id)
-        console.log('send over: ',e.target.id)
 
         //SET SQAURE NO TO 
         // e.target.dataset.sqaureNo = squareNo
@@ -96,9 +97,10 @@ export default function draggable(player){
         const direction = ship.dataset.direction
 
         //target information
-        const pos = e.target.id
-        const row = parseInt(pos.slice(-2,-1))
+        const pos = e.target.dataset.cell
+        const row = parseInt(pos.slice(0,1))
         const col = parseInt(pos.slice(-1))
+        console.log('hhh',row,col)
 
         const shipHoverCells = []
         let invalid = false;
@@ -106,7 +108,8 @@ export default function draggable(player){
         if (direction=='x'){
             const startCol = col - squareNo; //ie 5-1 = 4
             for (let i = 0;i<length;i++){
-                let cell = document.getElementById(`cell-${row}${startCol+i}`)
+                let cell = document.querySelector(`[data-cell="${row}${startCol+i}"]`)
+                // let cell = document.getElementById(`cell-${row}${startCol+i}`)
                 if (cell ==null){
                     //out of bounds
                     invalid = true
@@ -116,7 +119,6 @@ export default function draggable(player){
                     shipHoverCells.push(cell)
                 }
                 else{
-                    console.log('HI CELL',cell)
                     shipHoverCells.push(cell)
                 }
             }
@@ -125,7 +127,9 @@ export default function draggable(player){
             const startRow = row-squareNo
             console.log('tee',startRow,length)
             for (let i =0;i<length;i++){
-                let cell = document.getElementById(`cell-${startRow+i}${col}`)
+                // let cellxy = `${row}${startCol}`
+                let cell = document.querySelector(`[data-cell="${startRow+i}${col}"]`)
+                // let cell = document.getElementById(`cell-${startRow+i}${col}`)
                 console.log('cell is: ',`cell-${i}${col}`,"::META",i)
                 if (cell ==null){
                     //out of bounds
@@ -163,10 +167,10 @@ export default function draggable(player){
             //actually place the ships
             //player.place
             if (direction=='x'){
-                player.placeShip(Ship(length),[row,startCol],direction)
+                player.placeShip(Ship(length),[row,col-squareNo],direction)
             }
             else{
-                player.placeShip(Ship(length),[startRow,col],direction)
+                player.placeShip(Ship(length),[row-squareNo,col],direction)
             }
             addPlaced();
             
@@ -174,8 +178,7 @@ export default function draggable(player){
         }
     }
 
-    const getPlaced=()=>placed
-    const addPlaced=()=>placed++
+
 
     return {initDraggable,getPlaced}
 

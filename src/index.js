@@ -12,14 +12,18 @@
 // body.appendChild(img)
 
 import "./styles/main.scss"
+import GameLoop from "./modules/GameLoop"
 
-import initUI from "./modules/initBoard"
-import draggable from "./modules/draggable"
+const newGame = GameLoop()
+newGame.game();
 
-let test = initUI()
-// test.initPregameBoard();
-test.init();
+// import initUI from "./modules/initBoard"
+// import draggable from "./modules/draggable"
 
-let testDrag = draggable();
-testDrag.initDraggable();
-console.log('here')
+// let test = initUI()
+// // test.initPregameBoard();
+// test.init();
+
+// let testDrag = draggable();
+// testDrag.initDraggable();
+// console.log('here')

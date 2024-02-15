@@ -53,17 +53,22 @@ function Gameboard (){
     //PUBLIC
     const receiveAttack=(square)=>{
         //BOARD.recevieAttack => true/false depending ifhit
-        addHits();
         //Assumes sqaure has not been attacked
         let row = square[0],col = square[1];
         if (grid[row][col][0] ==''){
             grid[row][col][0] = 'x'
-            return [false,false] //no hit, no sunk
-        }
+        } //this is kinda redundant but ill review later
 
         if (grid[row][col].length>1){
+            addHits();
+            console.log('congrats: ',grid[row][col])
             let hasSunk = grid[row][col][1].addHits();
-            return [true,hasSunk] //has hit, sunk?
+            // return [true,hasSunk] //has hit, sunk?
+            return true
+        }
+        else{
+            console.log('MISS!')
+            return false
         }
 
     }

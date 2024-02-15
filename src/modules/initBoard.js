@@ -4,21 +4,22 @@
 
 function initUI(){
     const init = ()=>{
-        initPregameBoard();
+        initGameBoard('board1','board-cell');
         initPregameFleet();
         initShipRotate();
     }
 
-    const initPregameBoard= ()=>{
-        const playerBoard = document.getElementById('board1')
+    const initGameBoard= (boardID,cellClass)=>{
+        const playerBoard = document.getElementById(boardID)
         //create a 10 by 10 grid
         //give each grid data attributes
         for (let i=0;i<10;i++){
             for (let j=0;j<10;j++){
                 const newCell = document.createElement('div')
-                const cellID = 'cell-' +i.toString() + j.toString()
-                newCell.id = cellID
-                newCell.classList.add('board-cell')
+                // const cellID = 'cell-' +i.toString() + j.toString()
+                // newCell.id = cellID
+                newCell.dataset.cell = i.toString()+j.toString()
+                newCell.classList.add(cellClass)
                 playerBoard.appendChild(newCell)
             }
         }
@@ -75,7 +76,7 @@ function initUI(){
         })
     }
 
-    return {initPregameBoard,init}
+    return {initGameBoard,init}
 
 }
 export default initUI

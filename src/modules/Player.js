@@ -7,19 +7,23 @@ export default function Player(mine,theirs){
     2. attack an opposing board
     */
     let myBoard=mine,theirBoard=theirs;
+    let alreadyHitSquares =[];
 
     //attack opposing board
-    const attack =(sqaure)=>{
+    const attack =(square)=>{
+        alreadyHitSquares.push(square[0].toString()+square[1].toString())
         //assumes a new sqaure
-        let hitSunk =theirBoard.receiveAttack(square)
-        return [[sqaure[0],square[1]],hitSunk[0],hitSunk[1]]
+        let hit =theirBoard.receiveAttack(square)
+        return hit
     }
 
     const placeShip=(ship,start,direction)=>{
         //[ship,start,direction]
-        myBoard.placeShip(ship,start,direction)
 
+        myBoard.placeShip(ship,start,direction)
     }
 
-    return {attack,placeShip}
+    const getOpponentBoard=()=>theirBoard;
+
+    return {attack,placeShip,getOpponentBoard,alreadyHitSquares}
 }

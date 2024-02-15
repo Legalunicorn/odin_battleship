@@ -84,13 +84,13 @@ function AI(mine,theirs){
         let done = false;
         let col,row;
         let stringxy;
-        let hitSunk;
+        let hasHit;
         while (!done){
             col =Math.floor(Math.random() * 10);
             row = Math.floor(Math.random() * 10);
             stringxy = col.toString() + row.toString()
             if (!alreadyHitSqaures.includes(stringxy)){
-                hitSunk = theirBoard.receiveAttack([col,row])
+                hasHit = theirBoard.receiveAttack([col,row])
                 alreadyHitSqaures.push(stringxy)
                 //return the attack
                 done = true;
@@ -100,7 +100,7 @@ function AI(mine,theirs){
                 // return -1 //debug
             }
         }
-        return [[col,row],hitSunk[0],hitSunk[1]]
+        return [stringxy,hasHit] //xy,
         //return [[col,row],bool,bool] ==> coordiate attack, has hit, has sunk
     }
 
@@ -114,7 +114,9 @@ function AI(mine,theirs){
         }
     }
 
-    return {placeShipsRandomly,attack}
+    const getOpponentBoard=()=>theirBoard
+
+    return {placeShipsRandomly,attack,getOpponentBoard}
 }
 
 export default AI;
