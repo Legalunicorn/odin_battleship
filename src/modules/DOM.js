@@ -17,6 +17,7 @@ export default function DOM(){
     const loadBattleBoard = ()=>{
         const setup = document.getElementById('setup')
         setup.setAttribute('hidden','')
+        document.getElementById('board2').innerHTML=''
         UI.initGameBoard('board2','board-cell-AI');
 
         //remove Start Button

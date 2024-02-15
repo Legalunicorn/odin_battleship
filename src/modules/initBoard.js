@@ -58,7 +58,7 @@ function initUI(){
     }
     const initShipRotate = ()=>{
         const ships = document.querySelectorAll('.ship')
-        console.log('rar',ships)
+        // console.log('rar',ships)
         ships.forEach((ship)=>{
             ship.addEventListener('dblclick',()=>{
                 console.log('DOUBLE CLICKSS')

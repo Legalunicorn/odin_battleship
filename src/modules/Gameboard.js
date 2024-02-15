@@ -74,6 +74,7 @@ function Gameboard (){
     }
     //PUBLIC 
     const allSunk = ()=>{
+        // return (hits==2) debugging purpose to speed run game
         return (hits==5+4+3+2+2+1)
     }
 

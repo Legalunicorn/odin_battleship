@@ -30,7 +30,6 @@ export default function GameLoop(){
         //let the "start" button work, but only activates
         //when play drags 5 ships properly
         initStartGame(drag);
-        initPlayAgain();
         // battleTurns();
 
 
@@ -102,6 +101,7 @@ export default function GameLoop(){
                             //check if win else keep going
                             if (humanPlayer.getOpponentBoard().allSunk()){
                                 gameOver('Human')
+                                initPlayAgain();
                                 // gameOver=true;
                                 //Playagain
                                 // alert('GAME OVER!! YOU WIN')
@@ -124,6 +124,7 @@ export default function GameLoop(){
                 else if (AIPlayer.getOpponentBoard().allSunk()){
                     //check sunk all
                     gameOver('AI')
+                    initPlayAgain();
                     // gameOver=true;
                     // alert('You suck you lose to a random AI bot')
 
